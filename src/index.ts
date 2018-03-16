@@ -1,16 +1,16 @@
 import Vue from "vue";
-import HelloComponent from "./components/Hello.vue";
-console.warn('process.env');
+import TodoApp from "./components/TodoApp.vue";
+import "./static/iconfont.js";
+
 let v = new Vue({
     el: "#app",
     template: `
     <div>
-        Name111sss: <input v-model="name" type="text">
-        <hello-component :name="name" :initialEnthusiasm="5" />
+        <todo-app/>
     </div>
     `,
     data: { name: "World" },
     components: {
-        HelloComponent
+        TodoApp
     }
 });

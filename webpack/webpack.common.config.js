@@ -8,13 +8,6 @@ const AutoPrefixer = require('autoprefixer');
 const webpack = require('webpack');
 // const InlineManifestWebpackPlugin = require('inline-manifest2-webpack-plugin'); // inline script
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const px2rem = require('postcss-px2rem');
-const px2remConfigs = {
-    baseDpr: 1,
-    remUnit: 37.5,
-    forcePxComment: '!px',
-    keepComment: '!no'
-};
 const plugins = [
     /*
     * 将manifest打包成inline脚本
@@ -24,7 +17,7 @@ const plugins = [
     //     deleteFile: true
     // }),
     new HtmlWebpackPlugin({
-        title: 'typescript首页',
+        title: 'TodoMVC',
         template: path.resolve(__dirname, '../index.html'), //源index.html的路径
         filename: `./index.html`,                               //输出后的文件名
         // excludeChunks: ['manifest'],                            //输出index.html中需要排除的chunks

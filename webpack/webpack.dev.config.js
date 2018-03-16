@@ -18,46 +18,17 @@ const dev = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.js|\.jsx$|\.vue$/,
-            //     loader: 'eslint-loader',
-            //     enforce: 'pre',
-            //     exclude: /node_modules/
-            // },
             {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', {
-                    loader: 'postcss-loader', options: {
-                        plugins: [px2rem(px2remConfigs), AutoPrefixer({browsers: ['last 20 versions']})]
-                    }
-                }, 'sass-loader']
-            }, {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader', {
-                    loader: 'postcss-loader', options: {
-                        plugins: [px2rem(px2remConfigs), AutoPrefixer({browsers: ['last 20 versions']})]
-                    }
-                }],
-            }, {
-                test: /\.less$/,
-                use: ['style-loader', 'css-loader', {
-                    loader: 'postcss-loader', options: {
-                        plugins: [px2rem(px2remConfigs), AutoPrefixer({browsers: ['last 20 versions']})]
-                    }
-                }, 'less-loader'],
-            }, {
                 test: /\.vue$/,
                 loader: "vue-loader",
                 options: {
                     postcss: [
-                        px2rem(px2remConfigs),
-                        AutoPrefixer({browsers: ['last 20 versions']}),
+                        // px2rem(px2remConfigs),
                     ],
+                    // 配置处理.vue文件中样式的loader
                     loaders: {
-                        css: 'style-loader!css-loader!postcss-loader',
-                        sass: 'style-loader!css-loader!postcss-loader!sass-loader',
-                        scss: 'style-loader!css-loader!postcss-loader!sass-loader',
-                        less: 'style-loader!css-loader!postcss-loader!less-loader',
+                        scss: 'vue-style-loader!css-loader!sass-loader',
+                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
                     }
                 }
             }
