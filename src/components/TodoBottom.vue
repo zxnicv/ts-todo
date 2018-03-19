@@ -14,7 +14,10 @@ import Vue from "vue";
 import { TodoHeadState } from './../models';
 
 export default Vue.extend({
-    props: ['activeNum', 'listStatus'],
+    props: {
+        activeNum: Number,
+        listStatus: String,
+    },
     data() {
         const initialState: TodoHeadState = {
             inputText: '',

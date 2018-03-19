@@ -15,7 +15,6 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { AppState, TodoListItem, ListStatus } from '../models';
 import TodoHeader from './TodoHeader.vue';
 import TodoItem from './TodoItem.vue';
 import TodoBottom from './TodoBottom.vue';

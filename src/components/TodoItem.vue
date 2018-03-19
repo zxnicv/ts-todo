@@ -8,13 +8,19 @@
 <script lang="ts">
 import Vue from "vue";
 import Icon from './icon/index.vue';
-import { TodoItemState } from './../models';
+import { TodoItemState, TodoListItem } from './../models';
+
+type Prop<T> = { (): T } | { new(...args: any[]): T & object };
+type PropType<T> = Prop<T> | Prop<T>[];
 
 export default Vue.extend({
     components: {
         Icon,
     },
-    props: ['item', 'listStatus'],
+    props: {
+        item: Object as PropType<TodoListItem>,
+        listStatus: String,
+    },
     data() {
         const initialState: TodoItemState = {
             isShowClose: false,
@@ -29,16 +35,16 @@ export default Vue.extend({
         handleMouseOver() {
             this.isShowClose = true;
         },
-        handleMouseLeave() {
+        handleMouseLeave(item: TodoListItem) {
             this.isShowClose = false;
         },
         handleRemoveClick() {
+            this.handleMouseLeave(this.item);
             this.$emit('removeItem');
         }
     },
     computed: {
         isShowByListStatus(): boolean {
-            // console.warn('this.listStatus', this.listStatus);
             if (this.listStatus === 'All') return true;
             if (this.listStatus === 'Active' && this.item.status === 'check') return true;
             if (this.listStatus === 'Completed' && this.item.status === 'checked') return true;

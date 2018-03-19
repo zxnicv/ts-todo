@@ -14,6 +14,15 @@ export interface AppState {
     listStatus: ListStatus;
 }
 
+export interface AppStates {
+    itemList: TodoListItem[];
+    listStatus: ListStatus;
+}
+
+export interface testkStates {
+    itemList: TodoListItem[];
+    listStatus: ListStatus;
+}
 
 export interface Todo {
     title: string;
