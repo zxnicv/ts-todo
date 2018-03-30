@@ -45,7 +45,6 @@ export default Vue.extend({
     justify-content: space-between;
     align-items: center;
     padding: 0 18px;
-    border-top: 1px solid #e6e6e6;
     color: #777;
     font-siz: 14px;
 }

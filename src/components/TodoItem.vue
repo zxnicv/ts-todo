@@ -35,11 +35,10 @@ export default Vue.extend({
         handleMouseOver() {
             this.isShowClose = true;
         },
-        handleMouseLeave(item: TodoListItem) {
+        handleMouseLeave() {
             this.isShowClose = false;
         },
         handleRemoveClick() {
-            this.handleMouseLeave(this.item);
             this.$emit('removeItem');
         }
     },
@@ -60,6 +59,7 @@ export default Vue.extend({
         height: 50px;
         align-items: center;
         position: relative;
+        border-bottom: 1px solid #e5e5e5;
 
         p {
             margin-left: 15px;
@@ -93,13 +93,13 @@ export default Vue.extend({
     }
 
     .todo__close-wrap {
+        position: absolute;
+        right: 24px;
         width: 24px;
         height: 24px;        
     }
 
     .todo__close {
-        position: absolute;
-        right: 24px;
         width: 24px;
         height: 27px;
     }
